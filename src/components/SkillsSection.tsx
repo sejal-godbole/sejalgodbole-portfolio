@@ -8,7 +8,7 @@ const skills = [
   { name: 'Node.js', color: 'text-green-400' },
   { name: 'SQL', color: 'text-neon-blue' },
   { name: 'Docker', color: 'text-neon-blue' },
-  { name: 'TypeScript', color: 'text-neon-blue' },
+  { name: 'JavaScript', color: 'text-neon-blue' },
   { name: 'TailwindCSS', color: 'text-primary' },
   { name: 'TensorFlow', color: 'text-orange-400' },
   { name: 'Git', color: 'text-red-400' },
