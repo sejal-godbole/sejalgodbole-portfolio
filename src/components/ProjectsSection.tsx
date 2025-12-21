@@ -8,28 +8,28 @@ const projects = [
     description: 'An intelligent career guidance platform powered by Gemini API with personalized recommendations.',
     tech: ['Next.js', 'Gemini API', 'Clerk', 'Tailwind'],
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop',
-    github: '#',
+    github: 'https://github.com/sejal-godbole/AIVION',
   },
   {
     title: 'AI Component Generator',
     description: 'Generate React components instantly using natural language with Gemini Flash 2.5.',
     tech: ['Gemini Flash 2.5', 'Sandpack', 'React', 'TypeScript'],
     image: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=600&h=400&fit=crop',
-    github: '#',
+    github: 'https://github.com/sejal-godbole/takumi',
   },
   {
     title: 'AI Shredder++',
     description: 'Automated document redaction using OCR and Named Entity Recognition.',
     tech: ['Python', 'OCR', 'NER', 'Flask'],
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop',
-    github: '#',
+    github: 'https://github.com/sejal-godbole/AI-Shredder',
   },
   {
     title: 'Potato Leaf Disease',
     description: 'CNN-based classification system for detecting potato plant diseases.',
     tech: ['CNN', 'TensorFlow', 'Python', 'OpenCV'],
     image: 'https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=600&h=400&fit=crop',
-    github: '#',
+    github: 'https://github.com/sejal-godbole/Potato-Leaf-Disease-Classification',
   },
 ];
 

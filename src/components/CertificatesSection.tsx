@@ -1,13 +1,39 @@
 import { motion } from 'framer-motion';
 import { Award, Users } from 'lucide-react';
+import * as React from 'react';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
 
 const certificates = [
   {
     title: 'Complete Web Development Course',
     issuer: 'Udemy',
     year: '2025',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop',
+    image: 'webd.png',
   },
+  {
+    title: 'AWS Academy Graduate - Generative AI Foundations - Training Badge',
+    issuer: 'Amazon Web Services',
+    year: '2025',
+    image: '/aws.png',
+  },
+  {
+    title: 'Certificate of Completion: CCNAv7: Introduction to Networks',
+    issuer: 'Cisco Networking Academy',
+    year: '2024',
+    image: 'cisco.png',
+  },
+  {
+    title: 'Certificate of Completion: Six Sigma: Green Belt',
+    issuer: 'linkedIn Learning',
+    year: '2025',
+    image: 'sixsigma.png',
+  },
+  {
+    title: 'Certificate of Completion: 15 days of Power BI',
+    issuer: 'Udemy',
+    year: '2024',
+    image: 'powerbi.png',
+  }
 ];
 
 const activities = [
@@ -15,10 +41,38 @@ const activities = [
     title: 'Design Team Member',
     organization: 'CEC Club, VIIT',
     description: 'Contributing to visual design and branding for college events.',
+    image: 'cec.png',
   },
+  {
+    title: 'Smart India Hackathon 2025 – Internal Round - Participation Certificate',
+    organization: 'Government of India',
+    description: 'Participated in the internal round of SIH 2025 with innovative solutions.',
+    image: 'sih.png',
+  },
+  {
+    title: 'Innohack 2025 - Participation Certificate',
+    organization: 'VIIT',
+    description: 'Engaged in problem-solving and innovation during the Innohack event.',
+    image: 'innohack.png',
+  }
 ];
 
+type SelectedItem = {
+  title: string;
+  subtitle?: string;
+  image: string;
+  description?: string;
+};
+
 const CertificatesSection = () => {
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState<SelectedItem | null>(null);
+
+  function handleView(item: SelectedItem) {
+    setSelected(item);
+    setOpen(true);
+  }
+
   return (
     <section id="certs" className="py-32 relative">
       <div className="container mx-auto px-6">
@@ -71,6 +125,13 @@ const CertificatesSection = () => {
                     <p className="font-doodle text-chalk/60 text-sm">
                       {cert.issuer} • {cert.year}
                     </p>
+                    <button
+                      onClick={() => handleView(cert)}
+                      className="mt-2 inline-block text-sm text-primary underline-offset-2 hover:underline"
+                      aria-label={`View ${cert.title}`}
+                    >
+                      View
+                    </button>
                   </div>
                 </div>
 
@@ -78,6 +139,26 @@ const CertificatesSection = () => {
                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-chalk/10 rotate-3" />
               </motion.div>
             ))}
+            {/* Dialog for viewing certificate image */}
+            <Dialog open={open} onOpenChange={(val) => { if (!val) setSelected(null); setOpen(val); }}>
+              <DialogContent className="max-w-3xl">
+                {selected ? (
+                  <div className="flex flex-col items-center gap-4">
+                    <DialogTitle>{selected.title}</DialogTitle>
+                    <div className="w-full flex justify-center">
+                      <img
+                        src={selected.image}
+                        alt={selected.title}
+                        className="max-h-[70vh] w-auto rounded-md shadow-md"
+                      />
+                    </div>
+                    <DialogDescription>
+                      {selected.issuer} • {selected.year}
+                    </DialogDescription>
+                  </div>
+                ) : null}
+              </DialogContent>
+            </Dialog>
           </motion.div>
 
           {/* Activities */}
@@ -103,9 +184,30 @@ const CertificatesSection = () => {
                 viewport={{ once: true }}
                 className="glass-card p-6 sketch-border hover:border-neon-purple/30 transition-colors"
               >
-                <h4 className="text-lg font-bold text-foreground">{activity.title}</h4>
-                <p className="text-neon-purple font-medium mt-1">{activity.organization}</p>
-                <p className="text-muted-foreground text-sm mt-3">{activity.description}</p>
+                <div className="flex items-start gap-4">
+                  <img
+                    src={activity.image}
+                    alt={activity.title}
+                    className="w-28 h-20 object-cover rounded-sm"
+                  />
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-foreground">{activity.title}</h4>
+                    <p className="text-neon-purple font-medium mt-1">{activity.organization}</p>
+                    <p className="text-muted-foreground text-sm mt-3">{activity.description}</p>
+                    <button
+                      onClick={() => handleView({
+                        title: activity.title,
+                        subtitle: activity.organization,
+                        image: activity.image,
+                        description: activity.description,
+                      })}
+                      className="mt-3 text-sm text-primary underline-offset-2 hover:underline"
+                      aria-label={`View ${activity.title}`}
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
               </motion.div>
             ))}
 

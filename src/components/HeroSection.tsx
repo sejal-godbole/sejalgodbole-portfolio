@@ -116,7 +116,19 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 1 }}
             className="relative h-[500px] lg:h-[600px]"
           >
-            <Scene3D />
+                    <Scene3D />
+                    {/* Right-side portrait image (shows on md+ screens) */}
+                    <motion.img
+                      src="/sejal_portfolio.jpeg"
+                      alt="Sejal Godbole portrait"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6, duration: 0.8 }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/sejal_portfolio.png';
+                      }}
+                      className="hidden md:block absolute right-6 top-1/2 -translate-y-1/2 w-40 h-40 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-primary shadow-neon z-20"
+                    />
           </motion.div>
         </div>
       </div>
