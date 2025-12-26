@@ -54,6 +54,12 @@ const activities = [
     organization: 'VIIT',
     description: 'Engaged in problem-solving and innovation during the Innohack event.',
     image: 'innohack.png',
+  },
+  {
+    title: 'Publication: eal-Time Upper Body Pose Correction and Feedback System Using MediaPipe (2025)',
+    organization: 'C2I6 Conference, Bangalore',
+    description: 'Presented at the 2025 6th International Conference on Communication, Computing & Industry 6.0 (C2I6)',
+    image: 'c2i6.png',
   }
 ];
 
@@ -152,9 +158,7 @@ const CertificatesSection = () => {
                         className="max-h-[70vh] w-auto rounded-md shadow-md"
                       />
                     </div>
-                    <DialogDescription>
-                      {selected.issuer} • {selected.year}
-                    </DialogDescription>
+                    
                   </div>
                 ) : null}
               </DialogContent>
