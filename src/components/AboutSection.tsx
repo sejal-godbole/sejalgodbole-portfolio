@@ -41,16 +41,7 @@ const AboutSection = () => {
                 viewport={{ once: true }}
                 className="text-lg leading-relaxed text-chalk/80"
               >
-                I am a <span className="text-primary">3rd Year CSE-AI student</span> with a passion 
-                for building intelligent web solutions. I bridge the gap between{' '}
-                <RoughHighlight type="underline" color="#00f2ff" delay={800}>
-                  creative design
-                </RoughHighlight>{' '}
-                and{' '}
-                <RoughHighlight type="underline" color="#00f2ff" delay={1000}>
-                  complex backend logic
-                </RoughHighlight>
-                , crafting experiences that are both beautiful and functional.
+                I am a 3rd Year CSE-AI student at VIIT dedicated to building the next generation of intelligent web apps. Specializing in the Next.js ecosystem and Deep Learning, I bridge the gap between creative design and complex backend logic. I am actively seeking a Full-Stack internship where I can apply my skills to ship clean, scalable code and solve real-world problems.
               </motion.p>
 
               <div className="flex items-start gap-2">
